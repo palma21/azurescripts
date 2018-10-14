@@ -6,7 +6,7 @@ if [ $1 == "delete" ];
 then
     if [ $AZURE_RESOURCE_GROUP == "all" ];
     then
-        az group delete --name $(az group list --query "[].name" -o tsv)
+        az group delete --name $(az group list --query "[].name" -o tsv) --no-wait
     else
         GROUP_NAMES="${@:2}"
         for NAME in $GROUP_NAMES
